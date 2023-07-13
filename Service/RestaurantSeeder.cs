@@ -8,10 +8,10 @@ namespace RestaurantAPI
 {
     public class RestaurantSeeder
     {
-        private readonly RestaurantDbContext restaurantDbContext = new RestaurantDbContext();
-        public RestaurantSeeder(RestaurantDbContext restaurantDbContext)
+        private readonly RestaurantDbContext restaurantDbContext;
+        public RestaurantSeeder(RestaurantDbContext _restaurantDbContext)
         {
-            restaurantDbContext = this.restaurantDbContext;
+            restaurantDbContext = _restaurantDbContext;
         }
         public void Seed()
         {
@@ -54,7 +54,7 @@ namespace RestaurantAPI
                             Price = 15.20M
                         }
                     },
-                    Adress = new Address()
+                    Address = new Address()
                     {
                         City = "Rzeszow",
                         Street = "Wincentego Witosa 21",
@@ -87,7 +87,7 @@ namespace RestaurantAPI
                             Price = 15.70M
                         }
                     },
-                    Adress = new Address()
+                    Address = new Address()
                     {
                         City = "Rzeszow",
                         Street = "Kopisto 1",

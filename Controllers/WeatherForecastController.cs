@@ -14,7 +14,6 @@ namespace RestaurantAPI.Controllers
     {
         private readonly IWeatherForecastService _weatherForecastService;
         private readonly ILogger<WeatherForecastController> _logger;
-        private static HttpClient httpClient;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastService weatherForecastService)
         {

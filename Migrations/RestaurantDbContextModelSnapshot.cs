@@ -119,13 +119,13 @@ namespace RestaurantAPI.Migrations
 
             modelBuilder.Entity("RestaurantAPI.Entities.Restaurant", b =>
                 {
-                    b.HasOne("RestaurantAPI.Entities.Address", "Adress")
+                    b.HasOne("RestaurantAPI.Entities.Address", "Address")
                         .WithOne("Restaurant")
                         .HasForeignKey("RestaurantAPI.Entities.Restaurant", "AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Adress");
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("RestaurantAPI.Entities.Address", b =>

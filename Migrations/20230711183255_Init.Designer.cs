@@ -9,7 +9,7 @@ using RestaurantAPI.Entities;
 namespace RestaurantAPI.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20230221154032_Init")]
+    [Migration("20230711183255_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,13 +28,15 @@ namespace RestaurantAPI.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -119,13 +121,13 @@ namespace RestaurantAPI.Migrations
 
             modelBuilder.Entity("RestaurantAPI.Entities.Restaurant", b =>
                 {
-                    b.HasOne("RestaurantAPI.Entities.Address", "Adress")
+                    b.HasOne("RestaurantAPI.Entities.Address", "Address")
                         .WithOne("Restaurant")
                         .HasForeignKey("RestaurantAPI.Entities.Restaurant", "AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Adress");
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("RestaurantAPI.Entities.Address", b =>

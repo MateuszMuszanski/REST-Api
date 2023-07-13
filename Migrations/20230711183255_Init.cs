@@ -12,8 +12,8 @@ namespace RestaurantAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Street = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
